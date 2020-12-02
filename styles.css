@@ -1,15 +1,38 @@
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans+Narrow&display=swap');
+
+
+:root{
+    --primary-color: #2563EB;
+}
+
 body{
-    color: black;
+    font-family: 'PT Sans Narrow', sans-serif;
 }
-h1{
-    color: royalblue;
+
+.container{
+    padding: 0rem 1rem;
+.container-center{
+    max-width: 600px;
+    margin: auto;    
 }
-h2{
-    color: seagreen;
+
+/** comment in css **/
+.link{
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+
 }
-#lib-header{
-    color: brown;
+
+
+.link-primary{
+    background-color:var(--primary-color);
+    border-radius: 0.5rem;
+    color: white;
 }
-.para{
-    color: burlywood;
+
+
+.link-secondary{
+    color: var(--primary-color);
+    border: radius 0.5rem;
+    border:1px solid var(--primary-color);
 }
