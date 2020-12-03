@@ -1,33 +1,41 @@
-@import url('https://fonts.googleapis.com/css2?family=PT+Sans+Narrow&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
 
-
-:root{
-    --primary-color: #2563EB;
+:root{ 
+    --primary-color:blue;
 }
 
 body{
-    font-family: 'PT Sans Narrow', sans-serif;
+    font-family: 'Montserrat', sans-serif;
 }
 
 .container{
     padding: 0rem 1rem;
+}
 .container-center{
     max-width: 600px;
     margin: auto;    
 }
 
-/** comment in css **/
-.link{
+.link {
     text-decoration: none;
     padding: 0.5rem 1rem;
+}
 
+.primary-link{
+    background-color: var(--primary-color);
+    border-radius: 0.5rem;
+    color: aliceblue;
+}
+
+.secondary-link{
+    color:var(--primary-color);
+    border-radius: 00.5rem;
+    border:1px solid var(--primary-color);
 }
 
 
-.link-primary{
-    background-color:var(--primary-color);
-    border-radius: 0.5rem;
-    color: white;
+.list-non-bullet{
+    list-style: none;
 }
 
 
@@ -35,4 +43,13 @@ body{
     color: var(--primary-color);
     border: radius 0.5rem;
     border:1px solid var(--primary-color);
+}
+
+.list-non-bullet {
+    list-style: none;
+
+}
+.list-item-inline {
+    display: inline;
+    padding: 0rem 0.5rem;
 }
