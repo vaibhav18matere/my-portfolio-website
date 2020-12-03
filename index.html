@@ -38,9 +38,9 @@
     <h2>@list</h2>
     <small>this list will not have bullets  </small>
     <ul class="list-non-bullet" >
-        <li>Iteam 1</li>
-        <li>Iteam 2</li>
-        <li>Iteam 3</li>
+        <li>Iteam 1 to buy</li>
+        <li>Iteam 2 to buy</li>
+        <li>Iteam 3 to buy</li>
     </ul>
 
     <ul class="list-non-bullet" >
@@ -57,35 +57,56 @@
     </ol>
 <hr> 
     <h2>@nav</h2>
-    <nav>I am brand</nav>
-    <ul>
-        <li>
-            <a href="/">Home</a>
+
+    <nav class="navigation container">
+    <div class="nav-brand">I am brand</div> 
+
+    <ul class="list-non-bullet nav-pills" >
+        <li class="list-item-inline" >
+            <a class="link link-active" href="/">Home</a>
         </li>
-        <li>
-            <a href="/">Products</a>
+        <li class="list-item-inline" >
+            <a class="link" href="/">Products</a>
         </li>
-        <li>
-            <a href="/">about</a>
+        <li class="list-item-inline" >
+            <a class="link" href="/">about</a>
         </li>
     </ul>
+    </nav>
 
     <h2>
-        <header>
-            <img src="images/hero.svg">
-            <h1>heading inside hero</h1>
+        <header class="hero" >
+            <img class="hero-img" src="images/hero.svg">
+            <h1 class="hero-heading" >I am a<span class="heading-inverted" > Web Developer</span></h1>
         </header>
     </h2>
 <hr>
-    <h2>@section</h2>
-        <h3>@white section</h3>
-    <p>this will have white background</p>
 
-    <section>
-        <h3>@off white section</h3>
-        <p>this will have grey background</p>
+
+    <h2>@section</h2>
+    <section class="section">
+        <div class="container container-center">
+            <h1>white section</h1>
+            <p>CSS (Cascading Style Sheets) is used to style and lay out web pages — for example, to alter the font, color, size, and spacing of your content, split it into multiple columns, or add animations and other decorative features. This module provides a gentle beginning to your path towards CSS mastery with the basics of how it works, what the syntax looks like, and how you can start using it to add styling to HTML.</p>
+        </div>
+
+
+    </section>
+
+   <section class="section ow">
+        <div class="container container-center"> 
+            <h1>off white section</h1>
+            <p>CSS (Cascading Style Sheets) is used to style and lay out web pages — for example, to alter the font, color, size, and spacing of your content, split it into multiple columns, or add animations and other decorative features. This module provides a gentle beginning to your path towards CSS mastery with the basics of how it works, what the syntax looks like, and how you can start using it to add styling to HTML.</p>
+
+        </div>
+
+
+     
     </section>
     <hr>
+
+
+
     <h2>@footer</h2>
 
     <footer>
