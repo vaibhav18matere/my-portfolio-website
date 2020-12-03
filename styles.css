@@ -72,7 +72,6 @@ hr {
     border-bottom-left-radius: 1rem;
 
 }
-
 .navigation.link {
     color: white;
 }
@@ -118,4 +117,15 @@ hr {
 
 .ow { 
     background-color: var(--off-white);
+}
+
+.footer{
+    background-color: var(--primary-color);
+    padding: 2rem;
+    text-align: center;
+    color: white;
+    border-bottom-right-radius: 1rem;
+}
+.footer .link{
+    color: white;
 }
