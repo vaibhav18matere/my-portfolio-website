@@ -46,6 +46,8 @@ hr {
     border-radius: 00.5rem;
     border: 1px solid var(--primary-color);
     margin: 1rem 1rem;
+    align-items: center;
+    justify-content: center;
 }
 
 .list-non-bullet {
@@ -55,6 +57,7 @@ hr {
 .list-item-inline {
     display: inline;
     padding: 0rem 0.5rem;
+    
 }
 
 .navigation {
@@ -76,10 +79,12 @@ hr {
 
 .navigation .nav-pills {
     text-align: right;
+    
 }
 
 .navigation .link-active {
     font-weight: bold;
+    color:white;
 }
 
 .hero {
@@ -108,7 +113,15 @@ hr {
 }
 .section h1 {
     text-align: center;
-  
+    color: var(--primary-color);
+}
+
+h1 {
+    text-align: center;
+    color: var(--primary-color);
+}
+.info{
+    text-align: center;
 }
 
 .ow { 
