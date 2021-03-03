@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@600&display=swap');
 
 :root {
-    --primary-color:#3B82F6;
+    --primary-color:#2e518d;
     --dark-grey: #4B5563;
     --off-white:#D1D5DB;
 
@@ -20,10 +20,10 @@ body {
     padding: 0rem 1rem;
 }
 
-/* .container-center {
+.container-center {
     max-width: 600px;
     margin: auto;
-} */
+}
 
 hr {
     margin: 2rem 0rem;
@@ -46,8 +46,6 @@ hr {
     border-radius: 00.5rem;
     border: 1px solid var(--primary-color);
     margin: 1rem 1rem;
-    align-items: center;
-    justify-content: center;
 }
 
 .list-non-bullet {
@@ -64,7 +62,7 @@ hr {
     background-color: var(--primary-color);
     color: white;
     padding: 1rem;
-    border-bottom-left-radius: 1rem;
+    border-bottom-left-radius: 2rem;
 
 }
 .navigation.link {
@@ -116,16 +114,17 @@ hr {
     color: var(--primary-color);
 }
 
-h1 {
+h1{
     text-align: center;
     color: var(--primary-color);
 }
-.info{
+p{
     text-align: center;
 }
 
 .ow { 
     background-color: var(--off-white);
+    margin: 20px;
 }
 
 .footer{
