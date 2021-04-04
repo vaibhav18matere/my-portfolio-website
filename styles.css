@@ -20,11 +20,6 @@ body {
     padding: 0rem 1rem;
 }
 
-.container-center {
-    max-width: 600px;
-    margin: auto;
-}
-
 hr {
     margin: 2rem 0rem;
 }
@@ -32,6 +27,8 @@ hr {
 .link {
     text-decoration: none;
     padding: 0.5rem 1rem;
+    align-items: center;
+    text-align: center;
 }
 
 .primary-link {
