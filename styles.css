@@ -11,9 +11,31 @@ body {
     font-family: 'Open Sans', sans-serif;
     margin: 0px;
 }
+/* for color switcher  */
+.clr-btn{
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    border: solid rgb(74, 72, 72) 2px;
+    border-radius: 50%;
+    cursor: pointer;
+}
 
+#white{
+    background-color: white;
+}
+#black{
+    background-color: black;
+}
+#aqua{
+    background-color: aqua;
+}
 .margin-md{
     margin:2rem;
+}
+#color-switcher{
+    text-align: right;
+    padding: 10px;
 }
 
 .container {
