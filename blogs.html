@@ -7,8 +7,8 @@
     <title>Blogs</title>
 
     <link href="styles.css" rel="stylesheet">
-      <!-- favicon -->
-      <link rel="icon" href="/favicon.ico">
+    <!-- favicon -->
+    <link rel="icon" href="/favicon.ico">
 
 </head>
 
@@ -26,7 +26,7 @@
         <div class="nav-brand">Hello there !</div>
 
         <ul class="list-non-bullet nav-pills">
-            
+
             <li class="list-item-inline">
                 <a class="link " href="/index.html">Home</a>
             </li>
@@ -39,6 +39,13 @@
         </ul>
     </nav>
 
+    <!-- color switcher -->
+    <div id="color-switcher">
+        <span class="clr-btn" id="white" onclick="changeBG('#ffffff')"></span>
+        <span class="clr-btn" id="black" onclick="changeBG('#000000')"></span>
+        <span class="clr-btn" id="aqua" onclick="changeBG('#00FFFF')"></span>
+    </div>
+
     <header class="hero">
         <img class="hero-img" src="images/hero.svg">
         <header class="hero">
@@ -46,25 +53,26 @@
         </header>
     </header>
 
-    
+
 
     <section class="section ow">
         <div class="container container-center">
             <h1>POWER OF CONNECTIONS AND NETWORKING</h1>
             <p>If you visit any of my social network site, you’ll find <a
-                        href="https://linktr.ee/Vaibhav_Matere_">this</a>
+                    href="https://linktr.ee/Vaibhav_Matere_">this</a>
                 link in my bio. now, the question is “ Why I am doing it? ” - Read this wonderful blog, and you’ll get
                 the answer.</p>
             <a class="link primary-link"
-                href="https://www.linkedin.com/pulse/power-connections-networking-vaibhav-matere/">Click here to read</a>
+                href="https://www.linkedin.com/pulse/power-connections-networking-vaibhav-matere/">Click here to
+                read</a>
         </div>
     </section>
 
-    <section class="section">
+    <section class="section ow">
         <div class="container container-center">
             <h1>Dummy Blog</h1>
             <p>A brand new technical blog is work in progress..! as soon as it's get completed, i'll upload here..!</p>
-            <a class="link secondary-link" >Click here</a>
+            <a class="link secondary-link">Click here</a>
 
         </div>
 
@@ -79,5 +87,6 @@
         </ul>
     </footer>
 </body>
+<script src="app.js"></script>
 
 </html>

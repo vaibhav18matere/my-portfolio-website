@@ -40,9 +40,9 @@
 
     <!-- color switcher -->
     <div id="color-switcher">
-        <span class="clr-btn" id="white"></span>
-        <span class="clr-btn" id="black"></span>
-        <span class="clr-btn" id="aqua"></span>
+        <span class="clr-btn" id="white" onclick="changeBG('#ffffff')"></span>
+        <span class="clr-btn" id="black" onclick="changeBG('#000000')"></span>
+        <span class="clr-btn" id="aqua" onclick="changeBG('#00FFFF')"></span>
     </div>
 
     <header class="hero">
@@ -55,7 +55,9 @@
         <h1>ABOUT ME </h1>
         <div class="container container-center">
 
-            <p>I was working as a System Engineer in a one of Service based IT company since last one year, I am
+            <p class="textChange">I was working as a System Engineer in a one of Service based IT company since last one
+                year,
+                I am
                 passionate about Solving Problems. I found my passion in Web Developement and thats why I am shifting my
                 career in this domain..! </p>
         </div>
@@ -127,10 +129,11 @@
         </div>
     </section>
 
-    <section class="section">
+    <section class="section ow">
         <div class="container container-center">
             <h1>PROJECTS</h1>
-            <p>I love to build stuff and showcase my work, so here are few of my hosted projects :</p>
+            <p class="textChange">I love to build stuff and showcase my work, so here are few of my hosted projects :
+            </p>
             <a class="link primary-link" href="/projects.html">See Projects</a>
         </div>
     </section>
@@ -157,7 +160,7 @@
 
         </ul>
     </footer>
-
+    <script src="app.js"></script>
 </body>
 
 </html>
