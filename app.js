@@ -1,3 +1,4 @@
+// background color change
 function changeBG(color) {
     document.body.style.backgroundColor = color;
     let txtChng=document.getElementsByClassName("textChange")
@@ -11,3 +12,12 @@ function changeBG(color) {
         }
     }
 }
+// sticky navbar
+window.addEventListener('scroll', function() {
+    let navbar = document.getElementById("stickyNavbar");
+    if (window.pageYOffset >= 183) {
+      navbar.classList.add("sticky")
+    } else {
+        navbar.classList.remove("sticky")
+   }
+});

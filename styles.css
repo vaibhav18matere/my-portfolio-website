@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@600&display=swap');
 
 :root {
-    --primary-color:#2e518d;
+    --primary-color:#6b95dd;
     --dark-grey: #4B5563;
     --off-white:#D1D5DB;
 
@@ -37,7 +37,7 @@ body {
     text-align: right;
     padding: 10px;
 }
-
+/* container styling */
 .container {
     padding: 0rem 1rem;
 }
@@ -52,7 +52,7 @@ hr {
 }
 
 .primary-link {
-    background-color: var(--primary-color);
+    background-color: blue;
     border-radius: 0.5rem;
     color:white;
     margin: 1rem 1rem;
@@ -61,7 +61,7 @@ hr {
 .secondary-link {
     color: var(--primary-color);
     border-radius: 00.5rem;
-    border: 1px solid var(--primary-color);
+    border: 1px solid blue;
     margin: 1rem 1rem;
 }
 
@@ -74,9 +74,9 @@ hr {
     padding: 0rem 0.5rem;
     
 }
-
+/* nav styling */
 .navigation {
-    background-color: var(--primary-color);
+    background-color:var(--primary-color);
     color: white;
     padding: 1rem;
     border-bottom-left-radius: 2rem;
@@ -101,6 +101,16 @@ hr {
     font-weight: bold;
     color:white;
 }
+/* sticky nav bar */
+.sticky{
+    position: fixed;
+    top:0;
+    width:100%
+}
+
+
+
+
 
 .hero {
     padding: 2rem;
@@ -121,19 +131,19 @@ hr {
 }
 
 .hero .hero-heading .heading-inverted {
-    color: var(--primary-color);
+    color: blue;
 }
 .section{
     padding: 2rem;
 }
 .section h1 {
     text-align: center;
-    color: var(--primary-color);
+    color:  blue;
 }
 
 h1{
     text-align: center;
-    color: var(--primary-color);
+    color: blue;
 }
 p{
     text-align: center;
