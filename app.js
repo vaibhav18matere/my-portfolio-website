@@ -1,23 +1,20 @@
 // background color change
 function changeBG(color) {
     document.body.style.backgroundColor = color;
-    let txtChng=document.getElementsByClassName("textChange")
+    let txtChng = document.getElementById("txt1")
+    console.log(txtChng)
     if (color == "#000000") {
-        for (let elm of txtChng) {
-            elm.style.color = "#ffffff";
-        }
+        txtChng.style.color = "#ffffff";
     } else {
-        for (let elm of txtChng) {
-            elm.style.color = "#000000";
-        }
+        txtChng.style.color = "#000000";
     }
 }
 // sticky navbar
-window.addEventListener('scroll', function() {
+window.addEventListener('scroll', function () {
     let navbar = document.getElementById("stickyNavbar");
     if (window.pageYOffset >= 183) {
-      navbar.classList.add("sticky")
+        navbar.classList.add("sticky")
     } else {
         navbar.classList.remove("sticky")
-   }
+    }
 });
