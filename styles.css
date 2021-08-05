@@ -33,7 +33,7 @@ body {
 }
 #color-switcher{
     text-align: right;
-    padding: 10px;
+    padding: 1rem;
 }
 /* container styling */
 .container {
@@ -58,7 +58,7 @@ hr {
 
 .secondary-link {
     color: var(--primary-color);
-    border-radius: 00.5rem;
+    border-radius: 0.5rem;
     border: 1px solid blue;
     margin: 1rem 1rem;
 }
@@ -69,7 +69,7 @@ hr {
 
 .list-item-inline {
     display: inline;
-    padding: 0rem 0.5rem;
+    padding: 0 0.5rem;
     
 }
 /* nav styling */
@@ -78,23 +78,17 @@ hr {
     color: white;
     padding: 1rem;
     border-bottom-left-radius: 2rem;
-
 }
 .navigation.link {
     color: white;
 }
-
 .navigation .nav-brand {
     font-weight: bold;
-    padding: 1rem;
-    
+    padding: 1rem;    
 }
-
 .navigation .nav-pills {
-    text-align: right;
-    
+    text-align: right;    
 }
-
 .navigation .link-active {
     font-weight: bold;
     color:white;
@@ -110,20 +104,16 @@ hr {
     padding: 2rem;
     padding-top: 5rem;
 }
-
 .hero .hero-img {
     max-width: 400px;
     display: block;
     margin: auto;
 }
-
 .hero .hero-heading {
     padding-top: 1rem;
     color: var(--dark-grey);
     text-align: center;
-
 }
-
 .hero .hero-heading .heading-inverted {
     color: blue;
 }
@@ -134,7 +124,6 @@ hr {
     text-align: center;
     color:  blue;
 }
-
 h1{
     text-align: center;
     color: blue;
@@ -142,12 +131,10 @@ h1{
 p{
     text-align: center;
 }
-
 .ow { 
     background-color: var(--off-white);
     margin: 20px;
 }
-
 .footer{
     background-color: var(--primary-color);
     padding: 2rem;
@@ -161,7 +148,6 @@ p{
 .footer ul{
     padding-inline-start: 0px;
 }
-
 .footer .footer-header{
     font-weight: bold;
     font-size: large;
