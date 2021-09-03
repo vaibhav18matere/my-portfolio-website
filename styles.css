@@ -10,21 +10,11 @@
 body {
     font-family: 'Open Sans', sans-serif;
     margin: 0px;
-}
-
-#white{
-    background-color: white;
-}
-#black{
-    background-color: black;
+    text-align: center;
 }
 
 .margin-md{
     margin:2rem;
-}
-#color-switcher{
-    text-align: right;
-    padding: 1rem;
 }
 
 .container {
@@ -71,7 +61,7 @@ hr {
     border-bottom-left-radius: 2rem;
 }
 .navigation.link {
-    color: white;
+    color: rgb(19, 18, 18);
 }
 .navigation .nav-brand {
     font-weight: bold;
@@ -116,11 +106,7 @@ hr {
     color:  blue;
 }
 h1{
-    text-align: center;
     color: blue;
-}
-p{
-    text-align: center;
 }
 .ow { 
     background-color: var(--off-white);
