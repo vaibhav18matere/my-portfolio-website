@@ -9,7 +9,7 @@
 
 body {
     font-family: 'Open Sans', sans-serif;
-    margin: 0px;
+    margin: 0;
     text-align: center;
 }
 
@@ -73,12 +73,6 @@ hr {
 .navigation .link-active {
     font-weight: bold;
     color:white;
-}
-/* sticky nav bar */
-.sticky{
-    position: fixed;
-    top:0;
-    width:100%
 }
 
 .hero {
