@@ -111,23 +111,21 @@ h1{
     background-color: var(--off-white);
     margin: 20px;
 }
+
 .footer{
     background-color: var(--primary-color);
     padding: 2rem;
-    text-align: center;
-    color: white;
     border-bottom-left-radius: 1rem;
 }
-.footer .link{
-    color: white;
-}
-.footer .link:hover{
-    color: black;
-}
 .footer ul{
-    padding-inline-start: 0px;
+    padding-inline-start: 0;
 }
 .footer .footer-header{
-    font-weight: bold;
-    font-size: large;
+    font-size: larger;
+}
+.footer img{
+    display: inline;
+    width: 40px;
+    padding: 1rem 0.2rem;
+    margin: 0.25rem;
 }
