@@ -116,8 +116,7 @@ h1{
     padding: 2rem;
     text-align: center;
     color: white;
-    border-bottom-right-radius: 2rem;
-    border-bottom-left-radius: 2rem;
+    border-bottom-left-radius: 1rem;
 }
 .footer .link{
     color: white;
