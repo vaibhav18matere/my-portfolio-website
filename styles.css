@@ -36,14 +36,21 @@ hr {
     color:white;
     margin: 1rem 1rem;
 }
-
+.primary-link:hover{
+    background-color: white;
+    color: black;
+    border: 1px solid blue;
+}
 .secondary-link {
-    color: var(--primary-color);
+    color:black;
     border-radius: 0.5rem;
     border: 1px solid blue;
     margin: 1rem 1rem;
 }
-
+.secondary-link:hover{
+    background-color: blue;
+    color:white;
+}
 .list-non-bullet {
     list-style: none;
 }
@@ -80,6 +87,7 @@ hr {
     padding-top: 5rem;
 }
 .hero .hero-img {
+    width: 100%;
     max-width: 400px;
     display: block;
     margin: auto;
@@ -94,6 +102,9 @@ hr {
 }
 .section{
     padding: 2rem;
+}
+.heading-inverted {
+    color: blue;
 }
 .section h1 {
     text-align: center;
