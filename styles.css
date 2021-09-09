@@ -1,35 +1,32 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@600&display=swap');
 
-:root {
+:root{
     --primary-color:#6b95dd;
     --dark-grey: #4B5563;
     --off-white:#D1D5DB;
-
 }
-
-body {
+@media (min-width: 640px) { body {font-size:1rem;} } 
+@media (min-width:960px) { body {font-size:1.1rem;} } 
+@media (min-width:1100px) { body {font-size:1.1rem;} }
+body{
     font-family: 'Open Sans', sans-serif;
     margin: 0;
     text-align: center;
 }
-
 .margin-md{
     margin:2rem;
 }
-
-.container {
+.container{
     padding: 0rem 1rem;
 }
-
-hr {
+hr{
     margin: 2rem 0rem;
 }
-
 .link {
     text-decoration: none;
     padding: 0.5rem 1rem;
+    margin-bottom: 0;
 }
-
 .primary-link {
     background-color: blue;
     border-radius: 0.5rem;
@@ -60,32 +57,29 @@ hr {
     padding: 0 0.5rem;
     
 }
-/* nav styling */
+/* navbar styling */
 .navigation {
     background-color:var(--primary-color);
     color: white;
-    padding: 1rem;
+    padding: 0.5rem;
     border-bottom-left-radius: 2rem;
 }
 .navigation.link {
-    color: rgb(19, 18, 18);
-}
-.navigation .nav-brand {
-    font-weight: bold;
-    padding: 1rem;    
+    color: white;
 }
 .navigation .nav-pills {
-    text-align: right;    
+    text-align: right;  
 }
 .navigation .link-active {
     font-weight: bold;
-    color:white;
+    color: rgb(255, 255, 255);
 }
 
 .hero {
     padding: 2rem;
     padding-top: 5rem;
 }
+img { max-width: 100%; height: auto; }
 .hero .hero-img {
     width: 100%;
     max-width: 400px;
@@ -122,10 +116,14 @@ h1{
     padding: 2rem;
     text-align: center;
     color: white;
-    border-bottom-right-radius: 1rem;
+    border-bottom-right-radius: 2rem;
+    border-bottom-left-radius: 2rem;
 }
 .footer .link{
     color: white;
+}
+.footer .link:hover{
+    color: black;
 }
 .footer ul{
     padding-inline-start: 0px;
