@@ -49,6 +49,7 @@ hr{
     color:white;
 }
 .list-non-bullet {
+    padding: 0;
     list-style: none;
 }
 
@@ -110,6 +111,12 @@ h1{
 .ow { 
     background-color: var(--off-white);
     margin: 20px;
+}
+.btn_conatiner{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
 }
 
 .footer{
