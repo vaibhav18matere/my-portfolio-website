@@ -65,7 +65,7 @@ hr{
     padding: 0.5rem;
     border-bottom-left-radius: 2rem;
 }
-.navigation.link {
+.navigation .link {
     color: white;
 }
 .navigation .nav-pills {
@@ -75,7 +75,6 @@ hr{
     font-weight: bold;
     color: rgb(255, 255, 255);
 }
-
 .hero {
     padding: 2rem;
     padding-top: 5rem;
