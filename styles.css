@@ -4,6 +4,7 @@
     --primary-color:#6b95dd;
     --dark-grey: #4B5563;
     --off-white:#D1D5DB;
+    --secondary-color:#0000ff;
 }
 @media (min-width: 640px) { body {font-size:1rem;} } 
 @media (min-width:960px) { body {font-size:1.1rem;} } 
@@ -28,27 +29,27 @@ hr{
     margin-bottom: 0;
 }
 .primary-link {
-    background-color: blue;
+    background-color: var(--secondary-color);
     border-radius: 0.5rem;
-    color:white;
+    color:var(--off-white);
     margin: 1rem 1rem;
 }
 .primary-link:hover{
-    background-color: white;
+    background-color: var(--off-white);
     color: black;
-    border: 1px solid blue;
+    border: 1px solid  var(--secondary-color);
 }
 .secondary-link {
     color:black;
     border-radius: 0.5rem;
-    border: 1px solid blue;
+    border: 1px solid  var(--secondary-color);
     margin: 1rem 1rem;
 }
 .secondary-link:hover{
-    background-color: blue;
+    background-color:  var(--secondary-color);
     color:white;
 }
-.list-non-bullet {
+.list-non-bullet{
     padding: 0;
     list-style: none;
 }
@@ -64,6 +65,8 @@ hr{
     color: white;
     padding: 0.5rem;
     border-bottom-left-radius: 2rem;
+    position: sticky;
+    top: 0;
 }
 .navigation .link {
     color: white;
@@ -92,20 +95,20 @@ img { max-width: 100%; height: auto; }
     text-align: center;
 }
 .hero .hero-heading .heading-inverted {
-    color: blue;
+    color: var(--secondary-color);
 }
 .section{
     padding: 2rem;
 }
 .heading-inverted {
-    color: blue;
+    color: var(--secondary-color);
 }
 .section h1 {
     text-align: center;
-    color:  blue;
+    color: var(--secondary-color);
 }
 h1{
-    color: blue;
+    color: var(--secondary-color);
 }
 .ow { 
     background-color: var(--off-white);
@@ -117,7 +120,6 @@ h1{
     justify-content: center;
     align-items: center;
 }
-
 .footer{
     background-color: var(--primary-color);
     padding: 2rem;
