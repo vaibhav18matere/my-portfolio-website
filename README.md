@@ -1,5 +1,3 @@
 # my-portfolio-website
--This is my personal portfolio website 
--I have hosted all the important projects are listed here
--check out here :
-https://vaibhavmatere.netlify.app/
+- Personal portfolio website 
+- I have hosted all the important projects [here](https://vaibhavmatere.netlify.app)
