@@ -1,0 +1,1 @@
+To create a comprehensive `ARCHITECTURE.md` file, I need the details of the dependency graph you mentioned. Please provide the graph or the list of dependencies and key entities within the files so I can accurately document the architecture and create the corresponding Mermaid.js diagram.
