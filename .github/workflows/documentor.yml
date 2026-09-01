@@ -1,0 +1,182 @@
+name: Documentor Pro
+run-name: Documentor Pro - ${{ inputs.correlation_id }}
+on:
+  pull_request:
+    types: [opened, synchronize]
+  workflow_dispatch:
+    inputs:
+      correlation_id:
+        description: 'Job ID from Documentor'
+        required: true
+        type: string
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    
+    # Required if they want the bot to push commits back to the repo
+    permissions:
+      contents: write
+      id-token: write
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          # Fetch full history, highly recommended for codebase analysis tools
+          fetch-depth: 0
+          # head_ref is set for pull_request events; ref_name is set for workflow_dispatch
+          ref: ${{ github.head_ref || github.ref_name }}
+          
+      - name: Get changed files
+        if: github.event_name == 'pull_request'
+        id: changed-files
+        uses: tj-actions/changed-files@v44
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+          
+      - name: Cache Pip Packages
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/pip
+          key: ${{ runner.os }}-pip-documentor
+          
+      - name: Fetch License Key
+        id: auth
+        run: |
+          import os, urllib.request, json, urllib.parse
+          url = os.environ['ACTIONS_ID_TOKEN_REQUEST_URL']
+          audience = urllib.parse.quote('api://documentor-pro', safe='')
+          url += ('&' if '?' in url else '?') + 'audience=' + audience
+          req_headers = {'Authorization': 'Bearer ' + os.environ['ACTIONS_ID_TOKEN_REQUEST_TOKEN'], 'User-Agent': 'Documentor-Pro/1.0'}
+          req = urllib.request.Request(url, headers=req_headers)
+          token = json.loads(urllib.request.urlopen(req).read().decode())['value']
+          
+          req2_headers = {'Authorization': 'Bearer ' + token, 'User-Agent': 'Documentor-Pro/1.0'}
+          req2 = urllib.request.Request('https://documentor-pro.com/api/v1/github/repos/env?correlation_id=${{ inputs.correlation_id }}', headers=req2_headers)
+          try:
+              resp2 = urllib.request.urlopen(req2)
+              env_data = json.loads(resp2.read().decode())
+          except urllib.error.HTTPError as e:
+              print("HTTP Error:", e.code)
+              print(e.read().decode())
+              raise
+              
+          lic = env_data.get('doc_pro_license', '')
+          plan = env_data.get('plan', 'free')
+          llm_model_name = env_data.get('llm_model_name', '')
+          llm_api_key = env_data.get('llm_api_key', '')
+          user_embed_model = env_data.get('embed_model_name', '')
+          user_embed_key = env_data.get('embed_api_key', '')
+          
+          openai_key = ''
+          gemini_key = ''
+          hf_key = ''
+          anthropic_key = ''
+          deepseek_key = ''
+          embed_model = ''
+          embed_api_key = ''
+          
+          if llm_model_name.startswith('gemini'):
+              gemini_key = llm_api_key
+              embed_model = 'gemini/gemini-embedding-2'
+          elif llm_model_name.startswith('gpt') or llm_model_name.startswith('openai'):
+              openai_key = llm_api_key
+              embed_model = 'text-embedding-3-small'
+          elif llm_model_name.startswith('anthropic') or llm_model_name.startswith('claude'):
+              anthropic_key = llm_api_key
+              embed_model = 'BAAI/bge-m3'
+          elif llm_model_name.startswith('deepseek'):
+              deepseek_key = llm_api_key
+              embed_model = 'BAAI/bge-m3'
+              
+          if user_embed_model:
+              embed_model = user_embed_model
+          if user_embed_key:
+              embed_api_key = user_embed_key
+              
+          print(f'::add-mask::{lic}')
+          if llm_api_key:
+              print(f'::add-mask::{llm_api_key}')
+          if embed_api_key:
+              print(f'::add-mask::{embed_api_key}')
+          with open(os.environ['GITHUB_OUTPUT'], 'a') as f:
+              f.write(f'license={lic}\n')
+              f.write(f'plan={plan}\n')
+              f.write(f'llm_model_name={llm_model_name}\n')
+              f.write(f'openai_api_key={openai_key}\n')
+              f.write(f'gemini_api_key={gemini_key}\n')
+              f.write(f'anthropic_api_key={anthropic_key}\n')
+              f.write(f'deepseek_api_key={deepseek_key}\n')
+              f.write(f'hf_api_key={hf_key}\n')
+              f.write(f'embedding_model_name={embed_model}\n')
+              f.write(f'embedding_api_key={embed_api_key}\n')
+        shell: python
+          
+      - name: Install Documentor Pro
+        run: pip install documentor-pro --extra-index-url https://${{ steps.auth.outputs.license }}:@documentor-pro.com/pypi/simple/
+
+      - name: Generate Docs
+        env:
+          DOCUMENTOR_API_URL: https://documentor-pro.com
+          DOC_PRO_LICENSE: ${{ steps.auth.outputs.license }}
+          OPENAI_API_KEY: ${{ steps.auth.outputs.openai_api_key || secrets.OPENAI_API_KEY }}
+          GEMINI_API_KEY: ${{ steps.auth.outputs.gemini_api_key || secrets.GEMINI_API_KEY }}
+          ANTHROPIC_API_KEY: ${{ steps.auth.outputs.anthropic_api_key || secrets.ANTHROPIC_API_KEY }}
+          DEEPSEEK_API_KEY: ${{ steps.auth.outputs.deepseek_api_key || secrets.DEEPSEEK_API_KEY }}
+          HUGGINGFACE_API_KEY: ${{ steps.auth.outputs.hf_api_key || secrets.HUGGINGFACE_API_KEY }}
+          LITELLM_API_KEY: ${{ steps.auth.outputs.llm_api_key }}
+          MODEL_NAME: ${{ steps.auth.outputs.llm_model_name }}
+          EMBEDDING_MODEL_NAME: ${{ steps.auth.outputs.embedding_model_name }}
+          EMBEDDING_API_KEY: ${{ steps.auth.outputs.embedding_api_key }}
+        run: |
+          if [[ "${{ github.event_name }}" == "workflow_dispatch" ]] || [[ ! -d "documentor_docs" ]]; then
+            echo "Starting full Documentor generation..."
+            documentor-pro generate .
+            echo "Generation complete for job ${{ inputs.correlation_id }}"
+          else
+            echo "Starting PR Documentor generation..."
+            for file in ${{ steps.changed-files.outputs.all_changed_files }}; do
+              if [[ -f "$file" ]]; then
+                echo "Regenerating docs for $file"
+                documentor-pro generate . -f "$file" --regenerate || echo "Skipped $file"
+              fi
+            done
+          fi
+          
+      - name: Commit and Push Docs
+        if: always()
+        run: |
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+          
+          if [ -d "documentor_docs" ]; then
+            git add -f documentor_docs/
+          fi
+          
+          # Only commit if there are changes
+          if ! git diff --staged --quiet; then
+            git commit -m "docs: Auto-update AI documentation [skip ci]"
+            git push
+          else
+            echo "No docs to commit."
+          fi
+          
+      - name: Sync Embeddings to Documentor Pro
+        if: github.event_name != 'pull_request' && contains(fromJson('["ai_plus", "enterprise"]'), steps.auth.outputs.plan)
+        continue-on-error: true
+        env:
+          DOC_PRO_LICENSE: ${{ steps.auth.outputs.license }}
+          OPENAI_API_KEY: ${{ steps.auth.outputs.openai_api_key || secrets.OPENAI_API_KEY }}
+          GEMINI_API_KEY: ${{ steps.auth.outputs.gemini_api_key || secrets.GEMINI_API_KEY }}
+          ANTHROPIC_API_KEY: ${{ steps.auth.outputs.anthropic_api_key || secrets.ANTHROPIC_API_KEY }}
+          DEEPSEEK_API_KEY: ${{ steps.auth.outputs.deepseek_api_key || secrets.DEEPSEEK_API_KEY }}
+          HUGGINGFACE_API_KEY: ${{ steps.auth.outputs.hf_api_key || secrets.HUGGINGFACE_API_KEY }}
+          LITELLM_API_KEY: ${{ steps.auth.outputs.llm_api_key }}
+          MODEL_NAME: ${{ steps.auth.outputs.llm_model_name }}
+          EMBEDDING_MODEL_NAME: ${{ steps.auth.outputs.embedding_model_name }}
+          EMBEDDING_API_KEY: ${{ steps.auth.outputs.embedding_api_key }}
+        run: |
+          documentor-pro sync . --api-url 'https://documentor-pro.com' --correlation-id "${{ inputs.correlation_id }}"
